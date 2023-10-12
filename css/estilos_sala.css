@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body * {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    height: 80%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.heading {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    height: 5%;
+    padding: 2% 3%;
+    border-bottom: 1px solid #ccc;
+    background-color: darkcyan;
+    color: aliceblue;
+}
+
+.heading h4 {
+    align-self: flex-end;
+}
+
+.msg-container {
+    flex: 2;
+}
+
+.type-container {
+    padding: 1%;
+    border-top: 1px solid #ccc;
+}
+
+form {
+    display: flex;
+}
+
+#mensaje {
+    flex: 1;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    padding: 5px;
+}
+
+textarea:focus {
+    outline-color: darkcyan;
+}
+
+#btn-send-message {
+    width: 12%;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    background-color: darkcyan;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+#btn-send-message:hover {
+    background-color: #00bfb6;
+}
+
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.message {
+    position: relative;
+    width: 30%;
+    padding: 1%;
+    margin: 1% 0;
+}
+
+/* ME STYLES */
+
+.me {
+    align-self: flex-end;
+    margin-right: 1%;
+    border-radius: 10px 0 10px 10px;
+    background-color: #11d8ce;
+}
+
+.me::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #11d8ce;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #11d8ce;
+    border-bottom: 10px solid transparent;
+
+    right: -19px;
+    top: 0px;
+}
+
+
+.msg-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+}
+
+.msg-content {
+    margin-top: 5%;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+}
+
+
+/* OTHER STYLES */
+
+.other {
+    margin-left: 1%;
+    border-radius: 0 10px 10px 10px;
+    background-color: #d2d6de;
+}
+
+.other::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #d2d6de;
+    border-top: 10px solid #d2d6de;
+    border-bottom: 10px solid transparent;
+
+    left: -19px;
+    top: 0px;
+}
+
+.other .msg-info > p:first-child {
+    order: 2;
+}
+
+/* ESTILOS BOTÓN NUEVOS MENSAJES */
+.btn-new-messages {
+    display: none;
+    position: absolute;
+    bottom: -120%;
+    left: 35%;
+    padding: 2% 2%;
+    background-color: darkcyan;
+    color: aliceblue;
+    border-radius: 10px;
+    box-shadow: darkcyan 0px 0px 30px -2px;
+    cursor: pointer;
+    z-index: 1000;
+    animation: animacion 1.5s ease-in-out 0s infinite normal none;
+}
+
+.btn-new-messages:hover {
+    background-color: #00bfb6;
+}
+
+@keyframes animacion {
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+}
+
+/*ESTILOS MENSAJE DE BIENVENIDA */
+
+#toast-padre{
+    opacity: 0;
+    margin: auto;
+    position: absolute;
+    border: 1px solid darkcyan;
+    border-radius: 8px;
+    width: 20%;
+    overflow: hidden;
+    box-shadow: darkcyan 0px 0px 10px -2px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+#header-message{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    background-color: darkcyan;
+    color: white;
+}
+
+#icon-cerrar{
+    background-image: url("../icons/cerrar.png");
+    width: 10%;
+    background-repeat: no-repeat;
+    cursor: pointer; 
+}
+
+#message-user{ 
+    padding: 15px 8px;
+    background-color: white;
+    color: darkcyan;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* ESTILOS ALERTA DE USUARIO CONECTADO */
+
+#alert-content-user{
+    opacity: 0;
+    top: 2%;
+    left: 35%;
+    width: 30%;
+    height: 6%;
+    position: absolute;
+    border: 1px solid darkcyan;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: darkcyan 0px 0px 10px -2px;
+    transition: all 0.2s ease-in-out 0s;
+ 
+}
+
+#alert-text-user{
+    text-align: center;
+    padding: 3% 2%;
+    color: darkcyan;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* ESTILOS TYPING */
+
+#typing {
+    display: none;
+    position: absolute;
+    bottom: 8%;
+    font-size: 0.8rem;
+    z-index: 1000;
+}
+
+#typing > p {
+    display: inline-block;
+    position: relative;
+}
+
+#typing span {
+    font-weight: bolder;
+}
+
+#typing #punto1 {
+    position: absolute;
+    right: -5%;
+    bottom: 0;
+    animation: punto1 0.5s ease-in-out 0s infinite normal none;
+}
+
+#typing #punto2 {
+    position: absolute;
+    right: -10%;
+    animation: punto2 0.5s ease-in-out 0s infinite normal none;
+}
+
+#typing #punto3 {
+    position: absolute;
+    right: -15%;
+    animation: punto3 0.5s ease-in-out 0s infinite normal none;
+}
+
+@keyframes punto1 {
+    20% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes punto2 {
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes punto3 {
+    80% {
+        transform: translateY(-5px);
+    }
+}

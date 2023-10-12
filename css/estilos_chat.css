@@ -1,0 +1,54 @@
+
+.contenedor{
+
+    margin: 10% 20% auto;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: auto;
+    text-align: center;
+}
+
+.chat-encabezado{
+
+    height: 50px;
+    background-color: darkcyan;
+    color: aliceblue;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+
+}
+
+p{
+    padding: 2% 0 0 0;
+}
+
+.formulario{
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formulario input{
+
+    margin: 0.5rem;
+
+}
+
+#nickname{
+    width: 50%;
+}
+
+#btn-chat{
+    background-color: darkcyan;
+    padding: 1% 2%;
+    color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#btn-chat:hover{
+    background-color: rgb(25, 190, 190);
+}
